@@ -1,0 +1,19 @@
+.header {
+  /* padding-top: 30px;
+  padding-bottom: 26px; */
+  padding: 30px 104px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header__logo {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}
