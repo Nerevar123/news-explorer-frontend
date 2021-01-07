@@ -10,20 +10,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page__content {
   min-width: 320px;
-  max-width: 1440px;
-  /* max-width: 1232px; */
+  max-width: 1920px;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* padding-right: 104px;
-  padding-left: 104px; */
   position: relative;
 }
 
