@@ -1,0 +1,34 @@
+.saved-header {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 104px 56px;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.33;
+  background: #fff;
+}
+
+.saved-header__heading {
+  margin-top: 0;
+  margin-bottom: 28px;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved-header__title {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 30px;
+  width: 43%;
+}
+
+.saved-header__keywords {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.saved-header__keyword {
+  font-weight: 700;
+}

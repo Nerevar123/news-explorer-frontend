@@ -1,0 +1,102 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #fff;
+}
+
+.card__image {
+  width: 100%;
+  height: 272px;
+  vertical-align: top;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card__info {
+  padding: 20px 24px 24px;
+  min-height: 304px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__date {
+  font-family: 'SourceSansPro', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #B6BCBF;
+}
+
+.card__name {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #1A1B22;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.card__description {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.375;
+  color: #1A1B22;
+  margin-top: 0;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.card__source {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #B6BCBF;
+}
+
+.card__save-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-image: url(../../images/Card-saveButton.svg);
+  background-color: #fff;
+  /* display: flex; */
+}
+
+.card__save-button_active {
+  background-image: url(../../images/Card-saveButton-active.svg);
+}
+
+/* .card__save-button::before {
+  content: 'Войдите, чтобы сохранять статьи';
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 14px 12px;
+  background: #fff;
+  border-radius: 10px;
+  width: 182px;
+} */
+
+.card__keyword {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #000;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 10px;
+}

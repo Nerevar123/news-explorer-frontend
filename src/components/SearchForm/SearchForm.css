@@ -1,7 +1,35 @@
+.search {
+  max-width: 608px;
+  width: 42.2%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.search__title {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 1.07;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.search__subtitle {
+  width: 93%;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.33;
+  margin-top: 0;
+  margin-bottom: 64px;
+}
+
 .search-form {
   display: flex;
   border-radius: 100px;
-  overflow: hidden;
   position: relative;
   align-self: center;
   width: 100%;
@@ -39,6 +67,10 @@
   border-radius: 100px;
 }
 
+.label__input::placeholder {
+  color: #B6BCBF;
+}
+
 .label__input_type_error {
   border-bottom-color: #FF0000;
 }
@@ -62,7 +94,6 @@
   color: #fff;
   width:27.6%;
   background: #2F71E5;
-  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
   position: absolute;
   top: 0;
@@ -71,6 +102,23 @@
 }
 
 @media screen and (max-width: 975px){
+  .search {
+    width: 58.3%;
+    padding-top: 38px;
+    padding-bottom: 48px;
+  }
+  .search::before {
+    max-height: 400px;
+  }
+  .search__title {
+    font-size: 36px;
+    line-height: 1.11;
+    margin-bottom: 16px;
+    width: 70%;
+  }
+  .search__subtitle {
+    margin-bottom: 48px;
+  }
   .label__input {
     padding-top: 17px;
     padding-bottom: 17px;
@@ -81,6 +129,21 @@
 }
 
 @media screen and (max-width: 650px){
+  .search {
+    width: 90%;
+    padding-top: 30px;
+    padding-bottom: 32px;
+  }
+  .search::before {
+    max-height: 480px;
+  }
+  .search__title {
+    width: 100%;
+  }
+  .search__subtitle {
+    margin-bottom: 122px;
+    width: 100%;
+  }
   .search-form {
     display: flex;
     flex-direction: column;
@@ -88,10 +151,7 @@
     max-width: 400px;
   }
   .label {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    position: relative;
     margin-bottom: 16px;
   }
   .label__input {
@@ -101,5 +161,15 @@
     width: 100%;
     position: static;
     padding: 17px 16px;
+  }
+}
+
+@media screen and (max-width: 445px){
+  .search::before {
+    max-height: 536px;
+  }
+  .search::before {
+    background-image: url(../../images/SearchForm-background-mobile.jpg);
+    background-size: cover;
   }
 }

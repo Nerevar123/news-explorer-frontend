@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "../Button/Button";
+import './Form.css';
 
 function Form({
   name,
-  className,
   children,
   onSubmit,
   isDisabled,
@@ -13,7 +13,7 @@ function Form({
 }) {
   return (
     <form
-      className={`form ${className}`}
+      className={`form ${name}`}
       name={name}
       method="GET"
       noValidate
@@ -21,7 +21,7 @@ function Form({
     >
       {children}
       <Button
-        className={`${className}__button`}
+        className={`${name}__button`}
         text={buttonText}
         isDisabled={isDisabled}
         isSaving={isSaving}

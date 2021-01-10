@@ -34,9 +34,14 @@ function SearchForm({ onSubmit, validation }) {
   // }
 
   return (
+    <section className="search">
+    <h1 className="search__title">Что творится в мире?</h1>
+    <p className="search__subtitle">
+      Находите самые свежие статьи на любую тему и сохраняйте в своём личном
+      кабинете.
+    </p>
     <Form
     name="search-form"
-    className="search-form"
     onSubmit={onSubmit}
     buttonText="Искать"
     children={
@@ -44,6 +49,7 @@ function SearchForm({ onSubmit, validation }) {
           values={values}
           onChange={handleChange}
           errors={errors}
+          className="search-form"
           placeholder="Введите тему новости"
           name="name"
           type="text"
@@ -53,6 +59,7 @@ function SearchForm({ onSubmit, validation }) {
         />
     }
     />
+  </section>
   );
 }
 
