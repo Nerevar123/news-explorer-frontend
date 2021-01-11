@@ -1,7 +1,7 @@
 import React from "react";
-import './SearchForm.css';
 import Form from "../Form/Form";
 import Label from "../Label/Label";
+import './SearchForm.css';
 
 // function SearchForm() {
 //   return (
@@ -51,11 +51,12 @@ function SearchForm({ onSubmit, validation }) {
           errors={errors}
           className="search-form"
           placeholder="Введите тему новости"
-          name="name"
+          name="search"
           type="text"
           required
           minLength="2"
           maxLength="30"
+          autoComplete="off"
         />
     }
     />

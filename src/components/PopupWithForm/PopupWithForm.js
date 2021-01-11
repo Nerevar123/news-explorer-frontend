@@ -2,6 +2,7 @@ import React from "react";
 import "./PopupWithForm.css";
 import Form from "../Form/Form";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 function PopupWithForm({
   title,
@@ -12,11 +13,13 @@ function PopupWithForm({
   isSaving,
   children,
   isDisabled,
+  linkButtonText,
+  onLinkButtonClick,
   refs,
 }) {
   return (
     // <section className={`popup popup_type_${name}`} ref={refs}>
-    <section className="popup">
+    <section className="popup" ref={refs}>
       <div className="popup__container">
         <h3 className="popup__title">{title}</h3>
         <Form
@@ -32,6 +35,14 @@ function PopupWithForm({
           type="button"
           onClick={onClose}
         />
+        <p className="popup__text">
+          Или{" "}
+          <Button
+            className="popup__link-button"
+            text={linkButtonText}
+            onClick={onLinkButtonClick}
+          />
+        </p>
       </div>
     </section>
   );

@@ -4,24 +4,24 @@ function ClosablePopup(props) {
   const { children, ...rest } = props;
 
   React.useEffect(() => {
-    function closeModalWithEsc(e) {
+    function closePopupWithEsc(e) {
       if (e.key === "Escape") {
         children.props.onClose();
       }
     }
 
-    function closeModalWithClick(e) {
-      if (e.target.classList.contains("modal")) {
+    function closePopupWithClick(e) {
+      if (e.target.classList.contains("popup")) {
         children.props.onClose();
       }
     }
 
-    document.addEventListener("mousedown", closeModalWithClick);
-    document.addEventListener("keydown", closeModalWithEsc);
+    document.addEventListener("mousedown", closePopupWithClick);
+    document.addEventListener("keydown", closePopupWithEsc);
 
     return () => {
-      document.removeEventListener("mousedown", closeModalWithClick);
-      document.removeEventListener("keydown", closeModalWithEsc);
+      document.removeEventListener("mousedown", closePopupWithClick);
+      document.removeEventListener("keydown", closePopupWithEsc);
     };
   }, [children]);
 

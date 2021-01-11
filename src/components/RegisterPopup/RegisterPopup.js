@@ -2,7 +2,14 @@ import React from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import Label from "../Label/Label";
 
-function RegisterPopup({ onClose, onAddPlace, isSaving, validation, refs }) {
+function RegisterPopup({
+  onClose,
+  onAddPlace,
+  isSaving,
+  validation,
+  onLoginClick,
+  refs,
+}) {
   const { values, handleChange, errors, isValid, resetForm } = validation;
 
   React.useEffect(() => {
@@ -30,7 +37,9 @@ function RegisterPopup({ onClose, onAddPlace, isSaving, validation, refs }) {
       onSubmit={handleSubmit}
       isSaving={isSaving}
       isDisabled={!isValid}
-      // refs={refs}
+      onLinkButtonClick={onLoginClick}
+      linkButtonText="Войти"
+      refs={refs}
       children={
         <fieldset className="form__fields">
           <Label

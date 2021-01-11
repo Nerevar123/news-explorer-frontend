@@ -5,7 +5,7 @@ import Navigation from "../Navigation/Navigation";
 import Button from "../Button/Button";
 import useWindowSize from "../../hooks/useWindowSize";
 
-function Header({ isBlack }) {
+function Header({ isBlack, isLoggedIn, onLoginClick, onLogoutClick }) {
   const size = useWindowSize();
   const [isButtonClicked, setIsButtonClicked] = React.useState(false);
 
@@ -18,7 +18,7 @@ function Header({ isBlack }) {
       <Link to="/" className="header__logo">
         NewsExplorer
       </Link>
-      <Navigation isButtonClicked={isButtonClicked} isBlack={isBlack} />
+      <Navigation isButtonClicked={isButtonClicked} isBlack={isBlack} isLoggedIn={isLoggedIn} onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
       {size.width < 650 && (
         <>
           <Button

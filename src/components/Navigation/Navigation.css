@@ -51,7 +51,7 @@
   display: inline-flex;
 }
 
-.navigation__button::after {
+.navigation__button_logged::after {
   content: '';
   background-image: url(../../images/Navigation-logout.svg);
   width: 24px;
