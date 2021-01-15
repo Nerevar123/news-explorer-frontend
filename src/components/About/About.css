@@ -1,6 +1,7 @@
 .about {
   display: flex;
   padding: 80px 104px;
+  background: #fff;
 }
 
 .about__photo {
@@ -59,7 +60,7 @@
   .about__title {
     font-size: 30px;
     line-height: 1.33;
-    margin-top: 4px;
+    margin-top: 0;
     margin-bottom: 10px;
   }
 }

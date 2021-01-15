@@ -18,16 +18,14 @@ function Label({
       </span>
       <input
         name={name}
-        className={`label__input ${className}__input ${
-          errors[name] && "label__input_type_error"
-        }`}
+        className={`label__input ${className}__input`}
         value={values[name] || ""}
         placeholder={placeholder}
         {...props}
       />
       <span
         className={`label__error ${className}__error ${
-          errors[name] && "label__error_active"
+          errors[name] ? `${className}__error_active` : ""
         }`}
       >
         {errors[name] || ""}

@@ -7,7 +7,7 @@ function SavedNews() {
   return (
     <section className="saved-news">
       <SavedNewsHeader />
-      <NewsCardList />
+      <NewsCardList savedCard/>
     </section>
   );
 }

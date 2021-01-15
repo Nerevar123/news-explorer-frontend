@@ -32,3 +32,36 @@
 .saved-header__keyword {
   font-weight: 700;
 }
+
+@media screen and (max-width: 975px){
+  .saved-header {
+    padding: 24px 40px 32px;
+    font-size: 14px;
+    line-height: 1.71;
+  }
+  .saved-header__heading {
+    margin-bottom: 16px;
+  }
+  .saved-header__title {
+    font-size: 30px;
+    margin-bottom: 16px;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .saved-header {
+    padding: 8px 16px 32px;
+  }
+  .saved-header__heading {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .saved-header__title {
+    width: 82%;
+  }
+  .saved-header__keywords {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

@@ -1,15 +1,13 @@
 import React from "react";
-import Button from "../Button/Button";
 import './Form.css';
+import Button from "../Button/Button";
 
 function Form({
   name,
-  children,
   onSubmit,
   isDisabled,
-  isSaving,
-  isBlack,
   buttonText,
+  children,
 }) {
   return (
     <form
@@ -21,11 +19,10 @@ function Form({
     >
       {children}
       <Button
-        className={`${name}__button`}
+        className={`${name}__button ${isDisabled ? `${name}__button_disabled` : ""}`}
         text={buttonText}
-        isDisabled={isDisabled}
-        isSaving={isSaving}
-        isBlack={isBlack}
+        type="submit"
+        disabled={isDisabled}
       />
     </form>
   );

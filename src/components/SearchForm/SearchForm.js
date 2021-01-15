@@ -1,37 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "../Form/Form";
 import Label from "../Label/Label";
 import './SearchForm.css';
 
-// function SearchForm() {
-//   return (
-//     <form className="search-form">
-//       {/* <label htmlFor="">
-//         <input className="search-form__input" type="text" />
-//       </label> */}
+function SearchForm({ onSearch, validation }) {
+  const { values, handleChange, errors, resetForm } = validation;
 
-//       <Button text="Искать" />
-//     </form>
-//   );
-// }
+  useEffect(() => {
+    resetForm();
+    return () => {
+      resetForm();
+    };
+  }, [resetForm]);
 
-function SearchForm({ onSubmit, validation }) {
-  const { values, handleChange, errors, isValid, resetForm } = validation;
-  // React.useEffect(() => {
-  //   resetForm();
-  //   return () => {
-  //     resetForm();
-  //   };
-  // }, [resetForm]);
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   onAddPlace({
-  //     name: values.name || "",
-  //     link: values.link || "",
-  //   });
-  // }
+    onSearch();
+  }
 
   return (
     <section className="search">
@@ -42,7 +28,7 @@ function SearchForm({ onSubmit, validation }) {
     </p>
     <Form
     name="search-form"
-    onSubmit={onSubmit}
+    onSubmit={handleSubmit}
     buttonText="Искать"
     children={
         <Label
@@ -54,9 +40,8 @@ function SearchForm({ onSubmit, validation }) {
           name="search"
           type="text"
           required
-          minLength="2"
-          maxLength="30"
           autoComplete="off"
+          autoFocus
         />
     }
     />

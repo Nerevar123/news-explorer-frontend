@@ -37,6 +37,7 @@
   color: #1A1B22;
   text-decoration: none;
   margin-left: 38px;
+  transition: .4s;
 }
 
 .footer__icons {
@@ -64,6 +65,9 @@
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .footer__icon_type_github {
@@ -72,6 +76,12 @@
 
 .footer__icon_type_facebook {
   background-image: url(../../images/Footer-facebook.svg);
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .footer__link:hover {
+    opacity: .9;
+  }
 }
 
 @media screen and (max-width: 975px){

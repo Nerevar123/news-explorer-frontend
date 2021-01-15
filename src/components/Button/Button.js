@@ -1,9 +1,14 @@
 import React from "react";
-import './Button.css';
+import "./Button.css";
 
-function Button({ className, text, type, onClick }) {
+function Button({ className, text, type, onClick, ...props }) {
   return (
-    <button className={`button ${className}`} onClick={onClick} type={type}>
+    <button
+      className={`button ${className}`}
+      type={type}
+      onClick={onClick}
+      {...props}
+    >
       {text}
     </button>
   );
