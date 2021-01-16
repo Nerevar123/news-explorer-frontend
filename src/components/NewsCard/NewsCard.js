@@ -36,7 +36,7 @@ function NewsCard({
   return (
     <article className="card">
       <a href={link} className="card__link" rel="noreferrer" target="_blank">
-        <img className="card__image" src={image} alt="" />
+        <img className="card__image" src={image} alt={title} />
       </a>
       <div className="card__info">
         <span className="card__date">{date}</span>
