@@ -53,6 +53,10 @@
   border-radius: 100px;
 }
 
+.search-form__input:focus {
+  background-color: rgba(255, 255, 255, .9);
+}
+
 .search-form__error {
   display: none;
 }
