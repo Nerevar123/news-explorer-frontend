@@ -11,11 +11,7 @@ function NewsCardList({ savedCard }) {
       {/* {cards.slice().reverse().map((card) => ( */}
       <li className="cards__item">
         <NewsCard
-          // card={card}
           // key={card._id}
-          // onCardClick={props.onCardClick}
-          // onCardLike={props.onCardLike}
-          // onDeleteClick={props.onDeleteClick}
           keyword="Природа"
           image={image1}
           link="https://lenta.ru/"
@@ -23,7 +19,6 @@ function NewsCardList({ savedCard }) {
           title="Национальное достояние – парки"
           text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе."
           source="Лента.ру"
-
           savedCard={savedCard}
         />
       </li>
@@ -37,7 +32,6 @@ function NewsCardList({ savedCard }) {
           text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
           из местных чудес природы."
           source="Медуза"
-
           savedCard={savedCard}
         />
       </li>

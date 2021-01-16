@@ -60,10 +60,7 @@ function Header({
         unmountOnExit
       >
         <ClosablePopup>
-          <Popup
-            onClose={onClose}
-            refs={refs}
-          />
+          <Popup onClose={onClose} refs={refs} />
         </ClosablePopup>
       </CSSTransition>
     </header>

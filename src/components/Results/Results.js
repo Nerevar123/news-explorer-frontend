@@ -17,7 +17,12 @@ function Results({ isLoading, errors }) {
         <>
           <h2 className="results__title">Результаты поиска</h2>
           <NewsCardList />
-          <Button className="results__button" text="Показать еще"  type="button" onClick={handleMoreResults} />
+          <Button
+            className="results__button"
+            text="Показать еще"
+            type="button"
+            onClick={handleMoreResults}
+          />
         </>
       )}
     </section>

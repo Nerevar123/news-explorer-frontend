@@ -108,7 +108,7 @@
     left: 50%;
     transform: translate(-50%);
     grid-area: menu;
-    transition: .5s;
+    transition: .4s;
     background: #1A1B22;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;

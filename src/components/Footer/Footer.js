@@ -14,17 +14,36 @@ function Footer() {
             </Link>
           </li>
           <li className="footer__links-item">
-            <a href="https://praktikum.yandex.ru/" className="footer__link" rel="noreferrer" target="_blank">
+            <a
+              href="https://praktikum.yandex.ru/"
+              className="footer__link"
+              rel="noreferrer"
+              target="_blank"
+            >
               Яндекс.Практикум
             </a>
           </li>
         </ul>
         <ul className="footer__icons">
           <li className="footer__icons-item">
-            <a href="https://github.com/Nerevar123" className="footer__icon footer__icon_type_github" rel="noreferrer" target="_blank">GitHub</a>
+            <a
+              href="https://github.com/Nerevar123"
+              className="footer__icon footer__icon_type_github"
+              rel="noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
           </li>
           <li className="footer__icons-item">
-            <a href="https://www.facebook.com/mihail.plaksin.1" className="footer__icon footer__icon_type_facebook" rel="noreferrer" target="_blank">Facebook</a>
+            <a
+              href="https://www.facebook.com/mihail.plaksin.1"
+              className="footer__icon footer__icon_type_facebook"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Facebook
+            </a>
           </li>
         </ul>
       </div>

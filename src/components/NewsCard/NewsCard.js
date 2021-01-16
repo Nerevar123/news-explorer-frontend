@@ -49,11 +49,11 @@ function NewsCard({
           )}
         </a>
         {size.width >= 1050 && (
-        <p className="card__description">{formatText(text, 150)}</p>
-          )}
-          {size.width < 1050 && (
-        <p className="card__description">{formatText(text, 65)}</p>
-          )}
+          <p className="card__description">{formatText(text, 150)}</p>
+        )}
+        {size.width < 1050 && (
+          <p className="card__description">{formatText(text, 65)}</p>
+        )}
 
         <a href={link} className="card__link" rel="noreferrer" target="_blank">
           <span className="card__source">{source}</span>

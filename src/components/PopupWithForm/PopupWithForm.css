@@ -136,7 +136,7 @@
     top: 57px;
     left: 50%;
     transform: translate(-50%);
-    height: calc(100vh - 57px);
+    height: calc(calc(100vh - calc(100vh - 100%)) - 57px);
     border-radius: 16px 16px 0 0;
   }
   .popup__title {
