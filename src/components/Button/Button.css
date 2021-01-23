@@ -1,0 +1,17 @@
+.button {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  border: 0;
+  transition: .4s;
+}
+
+.button:focus {
+  outline: none;
+}

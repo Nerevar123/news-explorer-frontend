@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.form__fields {
+  border: 0;
+  padding: 0 0 12px;
+  margin: 0;
+}
+
+.form__error {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  width: 100%;
+  text-align: center;
+  color: #ff0000;
+  transition: .3s;
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  opacity: 0;
+  z-index: 20;
+}
+
+.form__error_active {
+  opacity: 1;
+}
+
+@media screen and (max-width: 975px){
+  .form__fields {
+    padding-bottom: 4px;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .form__fields {
+    padding-bottom: 0;
+  }
+  .form__error {
+    bottom: -75px;
+  }
+}

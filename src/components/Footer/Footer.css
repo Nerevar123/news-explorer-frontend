@@ -1,0 +1,146 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 104px;
+  justify-self: flex-end;
+}
+
+.footer__copyright {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.375;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #B6BCBF;
+}
+
+.footer__navbar {
+  display: flex;
+}
+
+.footer__links {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.footer__links-item {
+  display: inline;
+}
+
+.footer__link {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #1A1B22;
+  text-decoration: none;
+  margin-left: 38px;
+  transition: .4s;
+}
+
+.footer__icons {
+  display: flex;
+  margin-left: 56px;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.footer__icons-item {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  margin-left: 24px;
+}
+
+.footer__icons-item:first-of-type {
+  margin-left: 0;
+}
+
+.footer__icon {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.footer__icon_type_github {
+  background-image: url(../../images/Footer-github.svg);
+}
+
+.footer__icon_type_facebook {
+  background-image: url(../../images/Footer-facebook.svg);
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .footer__link:hover {
+    opacity: .9;
+  }
+}
+
+@media screen and (max-width: 975px){
+  .footer {
+    padding: 21px 40px;
+  }
+  .footer__link {
+    margin-left: 18px;
+  }
+  .footer__icons {
+    margin-left: 33px;
+  }
+  .footer__icon_type_facebook {
+    background-image: url(../../images/Footer-facebook-tablet.svg);
+  }
+}
+
+@media screen and (max-width: 650px){
+  .footer {
+    padding: 20px 16px;
+    display: grid;
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "navbar navbar"
+      "text text";
+    row-gap: 4px;
+  }
+  .footer__copyright {
+    grid-area: text;
+    justify-self: center;
+  }
+  .footer__navbar {
+    grid-area: navbar;
+    display: grid;
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-areas:
+    "links icons";
+  }
+  .footer__links {
+    grid-area: links;
+  }
+  .footer__links-item {
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 12px;
+  }
+  .footer__links-item:nth-last-of-type() {
+    margin-bottom: 0;
+  }
+  .footer__link {
+    margin-left: 0;
+  }
+  .footer__icons {
+    margin-left: 0;
+    grid-area: icons;
+    justify-self: end;
+  }
+  .footer__icon_type_facebook {
+    background-image: url(../../images/Footer-facebook.svg);
+  }
+}

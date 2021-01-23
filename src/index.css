@@ -1,0 +1,38 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background: #F5F6F7;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(26, 27, 34, .3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 27, 34, .2);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(./images/arrowUp.svg);
+  background-size: 65%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #F5F6F7;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(./images/arrowDown.svg);
+  background-size: 65%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #F5F6F7;
+  height: 10px;
+}

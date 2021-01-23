@@ -1,0 +1,87 @@
+.about {
+  display: flex;
+  padding: 80px 104px;
+  background: #fff;
+}
+
+.about__photo {
+  width: 464px;
+  height: 464px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin-right: 56px;
+  align-self: center;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  width: 48.7%;
+}
+
+.about__title {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  margin-top: 51px;
+  margin-bottom: 24px;
+}
+
+.about__paragraph {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.33;
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+@media screen and (max-width: 1150px){
+  .about__photo {
+    width: 344px;
+    height: 344px;
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width: 975px){
+  .about {
+    padding: 40px 40px 44px;
+  }
+  .about__photo {
+    width: 232px;
+    height: 232px;
+    margin-right: 32px;
+  }
+  .about__text {
+    width: 60%;
+  }
+  .about__title {
+    font-size: 30px;
+    line-height: 1.33;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .about {
+    padding: 32px 16px 56px;
+    flex-direction: column;
+  }
+  .about__photo {
+    width: 272px;
+    height: 272px;
+    margin-right: 0;
+    margin-bottom: 28px;
+  }
+  .about__text {
+    width: 100%;
+    max-width: 500px;
+  }
+  .about__title {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}

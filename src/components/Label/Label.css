@@ -1,0 +1,19 @@
+
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.label__input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  transition: .3s;
+  box-sizing: border-box;
+  caret-color: #2F71E5;
+}
+
+.label__input::placeholder {
+  color: #B6BCBF;
+}
