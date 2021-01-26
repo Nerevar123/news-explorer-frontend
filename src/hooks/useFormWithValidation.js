@@ -30,6 +30,7 @@ function useFormWithValidation() {
     isValid,
     setIsValid,
     setErrors,
+    setValues,
     resetForm,
   };
 }

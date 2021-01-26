@@ -3,11 +3,18 @@ import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
-function SavedNews() {
+function SavedNews({ savedArticles, onDeleteCard }) {
   return (
     <section className="saved-news">
-      <SavedNewsHeader />
-      <NewsCardList savedCard />
+      <SavedNewsHeader savedArticles={savedArticles} />
+      {savedArticles.length > 0 && (
+        <NewsCardList
+          articles={savedArticles}
+          savedCard
+          onDeleteCard={onDeleteCard}
+          savedArticles={savedArticles}
+        />
+      )}
     </section>
   );
 }

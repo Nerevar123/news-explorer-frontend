@@ -12,6 +12,7 @@
 
 .card__image {
   width: 100%;
+  min-height: 272px;
   height: 272px;
   vertical-align: top;
   object-fit: cover;
@@ -115,9 +116,13 @@
   position: absolute;
   top: 24px;
   left: 24px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: #fff;
   border-radius: 10px;
+  max-width: 33%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media(hover: hover) and (pointer: fine) {
@@ -138,6 +143,7 @@
 
 @media screen and (max-width: 1050px){
   .card__image {
+    min-height: 150px;
     height: 150px;
   }
   .card__info {
@@ -166,6 +172,7 @@
 
 @media screen and (max-width: 650px){
   .card__image {
+    min-height: 244px;
     height: 244px;
   }
   .card__info {
@@ -187,6 +194,7 @@
 
 @media screen and (max-width: 400px){
   .card__image {
+    min-height: 196px;
     height: 196px;
   }
 }

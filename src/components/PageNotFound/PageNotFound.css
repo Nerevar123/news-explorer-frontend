@@ -1,0 +1,42 @@
+.not-found {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found__icon {
+  background: url(../../images/Preloader-notFound.svg), transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 40px;
+}
+
+.not-found__title {
+  font-family: 'RobotoSlab', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.15;
+  color: #1A1B22;
+  text-align: center;
+}
+
+.not-found__link {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.375;
+  color: #1A1B22;
+}
+
+@media screen and (max-width: 650px){
+  .not-found {
+    padding: 20px;
+  }
+  .not-found__title {
+    font-size: 22px;
+  }
+}
+
