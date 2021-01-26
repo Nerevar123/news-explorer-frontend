@@ -1,9 +1,7 @@
-const mainUrl = "https://api.news.ner.works";
-export const newsUrl = "https://nomoreparties.co/news/v2/everything";
-export const apiKey = "aad9739c0a0449f3a2b4a6dfeaa6f7b5";
+import { MAIN_URL } from "./constants";
 
 export const apiOptions = {
-  baseUrl: mainUrl,
+  baseUrl: MAIN_URL,
   headers: {
     "Content-Type": "application/json",
   },
