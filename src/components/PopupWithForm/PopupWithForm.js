@@ -11,7 +11,7 @@ function PopupWithForm({
   onSubmit,
   isSaving,
   children,
-  // isDisabled,
+  isDisabled,
   linkButtonText,
   onLinkButtonClick,
   isSuccess,
@@ -36,8 +36,7 @@ function PopupWithForm({
           <Form
             name={name}
             onSubmit={onSubmit}
-            // isDisabled={isDisabled}
-            isDisabled={false}
+            isDisabled={isDisabled}
             buttonText={`${isSaving ? "Загрузка..." : buttonText}`}
             children={children}
           />

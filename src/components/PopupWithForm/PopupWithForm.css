@@ -60,20 +60,10 @@
 }
 
 .popup-form__error {
-  font-size: 12px;
-  line-height: 1.25;
   color: #FF0000;
-  position: absolute;
   top: calc(100% + 2px);
   left: 0;
-  opacity: 0;
-  transition: .3s;
-  z-index: 10;
   background-color: #fff;
-}
-
-.popup-form__error_active {
-  opacity: 1;
 }
 
 .popup-form__button {
@@ -82,10 +72,6 @@
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
   padding: 20px 50px;
-}
-
-.popup-form__button:active {
-  background: #2A65CC;
 }
 
 .popup-form__button_disabled {
@@ -115,6 +101,9 @@
 }
 
 @media(hover: hover) and (pointer: fine) {
+  .popup-form__button:active {
+    background: #2A65CC;
+  }
   .popup-form__button:hover {
     background: #347EFF;
   }

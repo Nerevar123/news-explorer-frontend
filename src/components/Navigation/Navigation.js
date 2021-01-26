@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./Navigation.css";
 
 function Navigation({
@@ -11,6 +12,8 @@ function Navigation({
   onLoginClick,
   onLogoutClick,
 }) {
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <nav
       className={`navigation ${!isButtonClicked ? "navigation_closed" : ""} ${
@@ -45,7 +48,7 @@ function Navigation({
             <li className="navigation__links-item">
               <Button
                 className="navigation__button navigation__button_logged"
-                text="Грета"
+                text={currentUser.name}
                 type="button"
                 onClick={onLogoutClick}
               />

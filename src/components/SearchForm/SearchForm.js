@@ -3,8 +3,8 @@ import Form from "../Form/Form";
 import Label from "../Label/Label";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch, validation }) {
-  const { values, handleChange, errors, resetForm } = validation;
+function SearchForm({ onSearch, validation, isSaving }) {
+  const { values, handleChange, errors, resetForm, isValid } = validation;
 
   useEffect(() => {
     resetForm();
@@ -15,8 +15,7 @@ function SearchForm({ onSearch, validation }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    onSearch();
+    onSearch(values.search || "");
   }
 
   return (
@@ -29,17 +28,20 @@ function SearchForm({ onSearch, validation }) {
       <Form
         name="search-form"
         onSubmit={handleSubmit}
+        isDisabled={!values.search || !isValid}
         buttonText="Искать"
         children={
           <Label
             values={values}
             onChange={handleChange}
             errors={errors}
+            isSaving={isSaving}
             className="search-form"
             placeholder="Введите тему новости"
             name="search"
             type="text"
             required
+            minLength="2"
             autoComplete="off"
             autoFocus
           />

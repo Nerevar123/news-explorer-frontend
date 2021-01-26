@@ -22,7 +22,11 @@ function RegisterPopup({
   function handleSubmit(e) {
     e.preventDefault();
 
-    onRegister();
+    onRegister({
+      email: values.email || "",
+      password: values.password || "",
+      name: values.name || "",
+    });
   }
 
   return (
@@ -44,6 +48,7 @@ function RegisterPopup({
               values={values}
               onChange={handleChange}
               errors={errors}
+              isSaving={isSaving}
               className="popup-form"
               name="email"
               placeholder="Введите почту"
@@ -56,6 +61,7 @@ function RegisterPopup({
               values={values}
               onChange={handleChange}
               errors={errors}
+              isSaving={isSaving}
               className="popup-form"
               name="password"
               placeholder="Введите пароль"
@@ -71,6 +77,7 @@ function RegisterPopup({
               values={values}
               onChange={handleChange}
               errors={errors}
+              isSaving={isSaving}
               className="popup-form"
               name="name"
               placeholder="Введите своё имя"

@@ -3,6 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: 104px;
+  padding-right: 104px;
+}
+
+.preloader__initial {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .preloader__circle {
@@ -24,6 +33,7 @@
   color: #1A1B22;
   margin-top: 32px;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .preloader__text {
@@ -46,4 +56,11 @@
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+@media screen and (max-width: 650px){
+  .preloader {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

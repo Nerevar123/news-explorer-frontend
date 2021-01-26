@@ -21,7 +21,10 @@ function LoginPopup({
   function handleSubmit(e) {
     e.preventDefault();
 
-    onLogin();
+    onLogin({
+      email: values.email || "",
+      password: values.password || "",
+    });
   }
 
   return (
@@ -42,6 +45,7 @@ function LoginPopup({
               values={values}
               onChange={handleChange}
               errors={errors}
+              isSaving={isSaving}
               className="popup-form"
               name="email"
               placeholder="Введите почту"
@@ -54,6 +58,7 @@ function LoginPopup({
               values={values}
               onChange={handleChange}
               errors={errors}
+              isSaving={isSaving}
               className="popup-form"
               name="password"
               placeholder="Введите пароль"

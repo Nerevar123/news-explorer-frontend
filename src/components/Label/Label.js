@@ -4,6 +4,8 @@ import "./Label.css";
 function Label({
   className,
   name,
+  onChange,
+  isSaving,
   labelText,
   placeholder,
   isBlack,
@@ -21,11 +23,13 @@ function Label({
         className={`label__input ${className}__input`}
         value={values[name] || ""}
         placeholder={placeholder}
+        onChange={onChange}
+        disabled={isSaving}
         {...props}
       />
       <span
         className={`label__error ${className}__error ${
-          errors[name] ? `${className}__error_active` : ""
+          errors[name] ? `label__error_active` : ""
         }`}
       >
         {errors[name] || ""}
