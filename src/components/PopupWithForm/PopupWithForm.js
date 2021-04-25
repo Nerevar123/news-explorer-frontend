@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "../Form/Form";
 import Button from "../Button/Button";
+import { TranslationContext } from "../../contexts/TranslationContext";
 import "./PopupWithForm.css";
 
 function PopupWithForm({
@@ -16,16 +17,16 @@ function PopupWithForm({
   onLinkButtonClick,
   isSuccess,
 }) {
+  const translation = React.useContext(TranslationContext);
+
   return (
     <div className="popup__container">
       {isSuccess ? (
         <>
-          <h3 className="popup__title">
-            Пользователь успешно зарегистрирован!
-          </h3>
+          <h3 className="popup__title">{translation.successText}</h3>
           <Button
             className="popup__link-button"
-            text="Войти"
+            text={translation.loginButton}
             type="button"
             onClick={onLinkButtonClick}
           />
@@ -37,11 +38,11 @@ function PopupWithForm({
             name={name}
             onSubmit={onSubmit}
             isDisabled={isDisabled}
-            buttonText={`${isSaving ? "Загрузка..." : buttonText}`}
+            buttonText={`${isSaving ? translation.loading : buttonText}`}
             children={children}
           />
           <p className="popup__text">
-            Или{" "}
+            {translation.or}{" "}
             <Button
               className="popup__link-button"
               text={linkButtonText}

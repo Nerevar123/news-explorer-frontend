@@ -2,6 +2,7 @@ import React from "react";
 import "./NewsCard.css";
 import Button from "../Button/Button";
 import useWindowSize from "../../hooks/useWindowSize";
+import { TranslationContext } from "../../contexts/TranslationContext";
 
 function NewsCard({
   id,
@@ -20,6 +21,7 @@ function NewsCard({
   savedArticles,
 }) {
   const size = useWindowSize();
+  const translation = React.useContext(TranslationContext);
 
   const isSaved = savedArticles.find((article) => {
     if (article.link === link) {
@@ -102,7 +104,7 @@ function NewsCard({
             type="button"
             onClick={handleDeleteCard}
           />
-          <span className="card__tip">Убрать из сохранённых</span>
+          <span className="card__tip">{translation.removeFromSaved}</span>
           <span className="card__keyword">{keyword}</span>
         </>
       ) : (
@@ -122,7 +124,7 @@ function NewsCard({
                 type="button"
                 onClick={onLoginClick}
               />
-              <span className="card__tip">Войдите, чтобы сохранять статьи</span>
+              <span className="card__tip">{translation.signInToSave}</span>
             </>
           )}
         </>

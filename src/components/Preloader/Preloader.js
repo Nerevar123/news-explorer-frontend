@@ -1,7 +1,10 @@
 import React from "react";
+import { TranslationContext } from "../../contexts/TranslationContext";
 import "./Preloader.css";
 
 function Preloader({ isLoading }) {
+  const translation = React.useContext(TranslationContext);
+
   return (
     <div className="preloader">
       {isLoading === null && (
@@ -12,28 +15,21 @@ function Preloader({ isLoading }) {
       {isLoading === "loading" && (
         <>
           <div className="preloader__circle"></div>
-          <p className="preloader__text">Идет поиск новостей...</p>
+          <p className="preloader__text">{translation.isSearching}</p>
         </>
       )}
       {isLoading === "notFound" && (
         <>
           <div className="preloader__not-found"></div>
-          <h4 className="preloader__title">Ничего не найдено</h4>
-          <p className="preloader__text">
-            К сожалению, по вашему запросу ничего не найдено.
-          </p>
+          <h4 className="preloader__title">{translation.notFoundTitle}</h4>
+          <p className="preloader__text">{translation.notFoundText}</p>
         </>
       )}
       {isLoading === "error" && (
         <>
           <div className="preloader__not-found"></div>
-          <h4 className="preloader__title">
-            Во время запроса произошла ошибка
-          </h4>
-          <p className="preloader__text">
-            Возможно, проблема с соединением или сервер недоступен. Подождите
-            немного и попробуйте ещё раз.
-          </p>
+          <h4 className="preloader__title">{translation.errorTitle}</h4>
+          <p className="preloader__text">{translation.errorText}</p>
         </>
       )}
     </div>

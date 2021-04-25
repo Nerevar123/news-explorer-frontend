@@ -1,16 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TranslationContext } from "../../contexts/TranslationContext";
 import "./Footer.css";
 
 function Footer() {
+  const translation = React.useContext(TranslationContext);
+
   return (
     <footer className="footer">
-      <p className="footer__copyright">© 2020 Supersite, Powered by News API</p>
+      <p className="footer__copyright">
+        © 2021 Menachem Neiman, Powered by News API
+      </p>
       <div className="footer__navbar">
         <ul className="footer__links">
           <li className="footer__links-item">
             <Link to="/" className="footer__link">
-              Главная
+              {translation.main}
             </Link>
           </li>
           <li className="footer__links-item">
@@ -20,7 +25,7 @@ function Footer() {
               rel="noreferrer"
               target="_blank"
             >
-              Яндекс.Практикум
+              {translation.yandex}
             </a>
           </li>
         </ul>

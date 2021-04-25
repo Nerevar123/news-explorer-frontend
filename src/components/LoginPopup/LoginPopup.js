@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Label from "../Label/Label";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { TranslationContext } from "../../contexts/TranslationContext";
 
 function LoginPopup({
   onClose,
@@ -10,6 +11,7 @@ function LoginPopup({
   validation,
 }) {
   const { values, handleChange, errors, isValid, resetForm } = validation;
+  const translation = React.useContext(TranslationContext);
 
   useEffect(() => {
     resetForm();
@@ -29,15 +31,15 @@ function LoginPopup({
 
   return (
     <PopupWithForm
-      title="Вход"
+      title={translation.login}
       name="popup-form"
-      buttonText="Войти"
+      buttonText={translation.loginButton}
       onClose={onClose}
       onSubmit={handleSubmit}
       isSaving={isSaving}
       isDisabled={!isValid}
       onLinkButtonClick={onRegisterClick}
-      linkButtonText="Зарегистрироваться"
+      linkButtonText={translation.registerButton}
       children={
         <>
           <fieldset className="form__fields">
@@ -48,7 +50,7 @@ function LoginPopup({
               isSaving={isSaving}
               className="popup-form"
               name="email"
-              placeholder="Введите почту"
+              placeholder={translation.emailPlaceholder}
               labelText="Email"
               type="email"
               required
@@ -61,8 +63,8 @@ function LoginPopup({
               isSaving={isSaving}
               className="popup-form"
               name="password"
-              placeholder="Введите пароль"
-              labelText="Пароль"
+              placeholder={translation.passwordPlaceholder}
+              labelText={translation.password}
               isBlack
               type="password"
               required

@@ -6,6 +6,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import ClosablePopup from "../hocs/ClosablePopup";
 import { CSSTransition } from "react-transition-group";
 import Popup from "../Popup/Popup";
+import Lang from "../Lang/Lang";
 import "./Header.css";
 
 function Header({
@@ -20,6 +21,8 @@ function Header({
   setIsButtonClicked,
   onButtonClick,
   refs,
+  lang,
+  setLang,
 }) {
   const size = useWindowSize();
   const isPopupOpen = isLoginPopupOpen || isRegisterPopupOpen;
@@ -40,9 +43,17 @@ function Header({
         isLoggedIn={isLoggedIn}
         onLoginClick={onLoginClick}
         onLogoutClick={onLogoutClick}
+        lang={lang}
+        setLang={setLang}
       />
-      {size.width < 650 && (
+      {size.width < 740 && (
         <>
+          <Lang
+            lang={lang}
+            setLang={setLang}
+            isBlack={isBlack}
+            isButtonClicked={isButtonClicked}
+          />
           <Button
             className={`header__menu-button ${
               isButtonClicked ? "header__menu-button_clicked" : ""

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Label from "../Label/Label";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { TranslationContext } from "../../contexts/TranslationContext";
 
 function RegisterPopup({
   onClose,
@@ -11,6 +12,7 @@ function RegisterPopup({
   onLoginClick,
 }) {
   const { values, handleChange, errors, isValid, resetForm } = validation;
+  const translation = React.useContext(TranslationContext);
 
   useEffect(() => {
     resetForm();
@@ -31,16 +33,16 @@ function RegisterPopup({
 
   return (
     <PopupWithForm
-      title="Регистрация"
+      title={translation.register}
       name="popup-form"
-      buttonText="Зарегистрироваться"
+      buttonText={translation.registerButton}
       onClose={onClose}
       onSubmit={handleSubmit}
       isSaving={isSaving}
       isSuccess={isSuccess}
       isDisabled={!isValid}
       onLinkButtonClick={onLoginClick}
-      linkButtonText="Войти"
+      linkButtonText={translation.loginButton}
       children={
         <>
           <fieldset className="form__fields">
@@ -51,7 +53,7 @@ function RegisterPopup({
               isSaving={isSaving}
               className="popup-form"
               name="email"
-              placeholder="Введите почту"
+              placeholder={translation.emailPlaceholder}
               labelText="Email"
               type="email"
               required
@@ -64,8 +66,8 @@ function RegisterPopup({
               isSaving={isSaving}
               className="popup-form"
               name="password"
-              placeholder="Введите пароль"
-              labelText="Пароль"
+              placeholder={translation.passwordPlaceholder}
+              labelText={translation.password}
               isBlack
               type="password"
               required
@@ -80,8 +82,8 @@ function RegisterPopup({
               isSaving={isSaving}
               className="popup-form"
               name="name"
-              placeholder="Введите своё имя"
-              labelText="Имя"
+              placeholder={translation.namePlaceholder}
+              labelText={translation.username}
               type="text"
               required
               minLength="2"
