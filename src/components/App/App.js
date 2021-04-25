@@ -18,6 +18,10 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { getNews } from "../../utils/NewsApi";
 import { api } from "../../utils/MainApi";
+import {
+  TranslationContext,
+  translations,
+} from "../../contexts/TranslationContext";
 
 function App() {
   const history = useHistory();
@@ -37,8 +41,12 @@ function App() {
   const [currentKeyword, setCurrentKeyword] = useState(false);
   const [isMoreResultButton, setIsMoreResultButton] = useState(false);
   const [isMinimizeButton, setIsMinimizeButton] = useState(false);
+  const [lang, setLang] = React.useState("en");
 
   useEffect(() => {
+    const lang = localStorage.getItem("lang");
+    if (lang) setLang(lang);
+
     Promise.all([api.getSavedArticles(), api.getUserInfo()])
       .then(([articles, user]) => {
         setIsLoggedIn(true);
@@ -93,7 +101,7 @@ function App() {
       })
       .catch((err) => {
         if (typeof err === "object") {
-          validation.setErrors({ submit: "Ошибка сервера" });
+          validation.setErrors({ submit: "Internal Server Error" });
         } else {
           validation.setErrors({ submit: err });
         }
@@ -115,7 +123,7 @@ function App() {
       })
       .catch((err) => {
         if (typeof err === "object") {
-          validation.setErrors({ submit: "Ошибка сервера" });
+          validation.setErrors({ submit: "Internal Server Error" });
         } else {
           validation.setErrors({ submit: err });
         }
@@ -211,56 +219,24 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  function handleLangChange(lang) {
+    setLang(lang);
+    localStorage.setItem("lang", lang);
+  }
+
   if (isLoggedIn === null) {
     return <Preloader isLoading={isLoading} />;
   }
 
   return (
     <div className="page__content">
-      <CurrentUserContext.Provider value={currentUser}>
-        <Router history={history} basename="/">
-          <ScrollToTop />
-          <Switch>
-            <Route exact path="/">
-              <Header
-                isLoggedIn={isLoggedIn}
-                isButtonClicked={isHeaderButtonClicked}
-                setIsButtonClicked={setHeaderButtonClicked}
-                isRegisterPopupOpen={isRegisterPopupOpen}
-                isLoginPopupOpen={isLoginPopupOpen}
-                onButtonClick={handleButtonClick}
-                onLoginClick={handleLoginClick}
-                onLogoutClick={handleLogout}
-                onClose={closeAllPopups}
-                refs={nodeRef}
-              />
-              <Main
-                onSearch={handleSearch}
-                isLoading={isLoading}
-                isSaving={isSaving}
-                validation={validation}
-                articles={currentArticles}
-                savedArticles={savedArticles}
-                keyword={currentKeyword}
-                onMoreResults={handleMoreResults}
-                onMinimize={handleMinimize}
-                isMoreResultButton={isMoreResultButton}
-                isMinimizeButton={isMinimizeButton}
-                isLoggedIn={isLoggedIn}
-                onLoginClick={handleLoginClick}
-                onSaveCard={handleSaveArticle}
-                onDeleteCard={handleDeleteArticle}
-              />
-            </Route>
-            <ProtectedRoute
-              exact
-              path="/saved-news"
-              loggedIn={isLoggedIn}
-              setLoginClick={setLoginClick}
-            >
-              <>
+      <TranslationContext.Provider value={translations[lang]}>
+        <CurrentUserContext.Provider value={currentUser}>
+          <Router history={history} basename="/">
+            <ScrollToTop />
+            <Switch>
+              <Route exact path="/">
                 <Header
-                  isBlack
                   isLoggedIn={isLoggedIn}
                   isButtonClicked={isHeaderButtonClicked}
                   setIsButtonClicked={setHeaderButtonClicked}
@@ -271,43 +247,86 @@ function App() {
                   onLogoutClick={handleLogout}
                   onClose={closeAllPopups}
                   refs={nodeRef}
+                  lang={lang}
+                  setLang={handleLangChange}
                 />
-                <SavedNews
+                <Main
+                  onSearch={handleSearch}
+                  isLoading={isLoading}
+                  isSaving={isSaving}
+                  validation={validation}
+                  articles={currentArticles}
                   savedArticles={savedArticles}
+                  keyword={currentKeyword}
+                  onMoreResults={handleMoreResults}
+                  onMinimize={handleMinimize}
+                  isMoreResultButton={isMoreResultButton}
+                  isMinimizeButton={isMinimizeButton}
+                  isLoggedIn={isLoggedIn}
+                  onLoginClick={handleLoginClick}
+                  onSaveCard={handleSaveArticle}
                   onDeleteCard={handleDeleteArticle}
                 />
-              </>
-            </ProtectedRoute>
-            <Route path="*">
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </Router>
-        <Footer />
-        <CSSTransition
-          nodeRef={nodeRef}
-          in={isLoginPopupOpen || isRegisterPopupOpen}
-          timeout={300}
-          classNames="popup"
-          unmountOnExit
-        >
-          <ClosablePopup>
-            <Popup
-              onClose={closeAllPopups}
-              onLogin={handleLogin}
-              onRegister={handleRegister}
-              onLoginClick={handleLoginClick}
-              onRegisterClick={handleRegisterClick}
-              isRegisterPopupOpen={isRegisterPopupOpen}
-              isLoginPopupOpen={isLoginPopupOpen}
-              isSaving={isSaving}
-              isSuccess={isSuccess}
-              validation={validation}
-              refs={nodeRef}
-            />
-          </ClosablePopup>
-        </CSSTransition>
-      </CurrentUserContext.Provider>
+              </Route>
+              <ProtectedRoute
+                exact
+                path="/saved-news"
+                loggedIn={isLoggedIn}
+                setLoginClick={setLoginClick}
+              >
+                <>
+                  <Header
+                    isBlack
+                    isLoggedIn={isLoggedIn}
+                    isButtonClicked={isHeaderButtonClicked}
+                    setIsButtonClicked={setHeaderButtonClicked}
+                    isRegisterPopupOpen={isRegisterPopupOpen}
+                    isLoginPopupOpen={isLoginPopupOpen}
+                    onButtonClick={handleButtonClick}
+                    onLoginClick={handleLoginClick}
+                    onLogoutClick={handleLogout}
+                    onClose={closeAllPopups}
+                    refs={nodeRef}
+                    lang={lang}
+                    setLang={handleLangChange}
+                  />
+                  <SavedNews
+                    savedArticles={savedArticles}
+                    onDeleteCard={handleDeleteArticle}
+                  />
+                </>
+              </ProtectedRoute>
+              <Route path="*">
+                <PageNotFound />
+              </Route>
+            </Switch>
+          </Router>
+          <Footer />
+          <CSSTransition
+            nodeRef={nodeRef}
+            in={isLoginPopupOpen || isRegisterPopupOpen}
+            timeout={300}
+            classNames="popup"
+            unmountOnExit
+          >
+            <ClosablePopup>
+              <Popup
+                onClose={closeAllPopups}
+                onLogin={handleLogin}
+                onRegister={handleRegister}
+                onLoginClick={handleLoginClick}
+                onRegisterClick={handleRegisterClick}
+                isRegisterPopupOpen={isRegisterPopupOpen}
+                isLoginPopupOpen={isLoginPopupOpen}
+                isSaving={isSaving}
+                isSuccess={isSuccess}
+                validation={validation}
+                refs={nodeRef}
+              />
+            </ClosablePopup>
+          </CSSTransition>
+        </CurrentUserContext.Provider>
+      </TranslationContext.Provider>
     </div>
   );
 }

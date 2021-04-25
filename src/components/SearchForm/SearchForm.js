@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import Form from "../Form/Form";
 import Label from "../Label/Label";
+import { TranslationContext } from "../../contexts/TranslationContext";
 import "./SearchForm.css";
 
 function SearchForm({ onSearch, validation, isSaving }) {
   const { values, handleChange, errors, resetForm, isValid } = validation;
+  const translation = React.useContext(TranslationContext);
 
   useEffect(() => {
     resetForm();
@@ -20,16 +22,13 @@ function SearchForm({ onSearch, validation, isSaving }) {
 
   return (
     <section className="search">
-      <h1 className="search__title">Что творится в мире?</h1>
-      <p className="search__subtitle">
-        Находите самые свежие статьи на любую тему и сохраняйте в своём личном
-        кабинете.
-      </p>
+      <h1 className="search__title">{translation.title}</h1>
+      <p className="search__subtitle">{translation.subtitle}</p>
       <Form
         name="search-form"
         onSubmit={handleSubmit}
         isDisabled={!values.search || !isValid}
-        buttonText="Искать"
+        buttonText={translation.searchButton}
         children={
           <Label
             values={values}
@@ -37,7 +36,7 @@ function SearchForm({ onSearch, validation, isSaving }) {
             errors={errors}
             isSaving={isSaving}
             className="search-form"
-            placeholder="Введите тему новости"
+            placeholder={translation.searchPlaceholder}
             name="search"
             type="text"
             required

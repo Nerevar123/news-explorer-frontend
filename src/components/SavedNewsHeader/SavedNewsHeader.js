@@ -1,9 +1,11 @@
 import React from "react";
 import "./SavedNewsHeader.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { TranslationContext } from "../../contexts/TranslationContext";
 
 function SavedNewsHeader({ savedArticles }) {
   const currentUser = React.useContext(CurrentUserContext);
+  const translation = React.useContext(TranslationContext);
   const articlesLength = savedArticles.length;
   const keywords = savedArticles.map(({ keyword }) => keyword);
 
@@ -18,36 +20,36 @@ function SavedNewsHeader({ savedArticles }) {
 
   function setTitleText() {
     if (articlesLength % 10 === 1 && articlesLength % 100 !== 11) {
-      return "сохранённая статья";
+      return translation.savedArticle;
     } else if (
       (articlesLength % 10 === 2 && articlesLength % 100 !== 12) ||
       (articlesLength % 10 === 3 && articlesLength % 100 !== 13) ||
       (articlesLength % 10 === 4 && articlesLength % 100 !== 14)
     ) {
-      return "сохранённые статьи";
+      return translation.savedArticle2;
     }
-    return "сохранённых статей";
+    return translation.savedArticle3;
   }
 
   function setKeywordsText() {
     if (keywords.length === 1) {
-      return "По ключевому слову: ";
+      return translation.byKeyword;
     }
-    return "По ключевым словам: ";
+    return translation.byKeywords;
   }
 
   function setKeywordsEnding() {
     const length = keywordsByPopularity.length - 2;
     if (length % 10 === 1 && length % 100 !== 11) {
-      return "-у другому";
+      return translation.more;
     } else if (
       (length % 10 === 2 && length % 100 !== 12) ||
       (length % 10 === 3 && length % 100 !== 13) ||
       (length % 10 === 4 && length % 100 !== 14)
     ) {
-      return "-м другим";
+      return translation.more2;
     }
-    return "-и другим";
+    return translation.more3;
   }
 
   function setKeywords(keywords) {
@@ -61,9 +63,10 @@ function SavedNewsHeader({ savedArticles }) {
 
   return (
     <div className="saved-header">
-      <p className="saved-header__heading">Сохранённые статьи</p>
+      <p className="saved-header__heading">{translation.savedArticles}</p>
       <h2 className="saved-header__title">
-        {currentUser.name}, у вас {savedArticles.length} {setTitleText()}
+        {currentUser.name}, {translation.youHave} {savedArticles.length}{" "}
+        {setTitleText()}
       </h2>
       {savedArticles.length > 0 && (
         <p className="saved-header__keywords">
@@ -78,7 +81,7 @@ function SavedNewsHeader({ savedArticles }) {
               <span className="saved-header__keyword">
                 {setKeywords(keywordsByPopularity.slice(0, 2))}
               </span>{" "}
-              и{" "}
+              {translation.and}{" "}
               <span className="saved-header__keyword">
                 {keywordsByPopularity.length - 2}
                 {setKeywordsEnding()}

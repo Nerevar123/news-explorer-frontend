@@ -3,6 +3,7 @@ import "./Results.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Button from "../Button/Button";
 import Preloader from "../Preloader/Preloader";
+import { TranslationContext } from "../../contexts/TranslationContext";
 
 function Results({
   isLoading,
@@ -18,6 +19,8 @@ function Results({
   onSaveCard,
   onDeleteCard,
 }) {
+  const translation = React.useContext(TranslationContext);
+
   return (
     <section className="results">
       {(isLoading === "loading" || "notFound") && (
@@ -25,7 +28,7 @@ function Results({
       )}
       {isLoading === "loaded" && (
         <>
-          <h2 className="results__title">Результаты поиска</h2>
+          <h2 className="results__title">{translation.results}</h2>
           <NewsCardList
             articles={articles}
             savedArticles={savedArticles}
@@ -38,7 +41,7 @@ function Results({
           {isMoreResultButton && (
             <Button
               className="results__button"
-              text="Показать еще"
+              text={translation.showMore}
               type="button"
               onClick={onMoreResults}
             />
@@ -46,7 +49,7 @@ function Results({
           {isMinimizeButton && (
             <Button
               className="results__button"
-              text="Свернуть"
+              text={translation.collapse}
               type="button"
               onClick={onMinimize}
             />

@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
+import Lang from "../Lang/Lang";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import useWindowSize from "../../hooks/useWindowSize";
+import { TranslationContext } from "../../contexts/TranslationContext";
 import "./Navigation.css";
 
 function Navigation({
@@ -11,15 +14,26 @@ function Navigation({
   isLoggedIn,
   onLoginClick,
   onLogoutClick,
+  lang,
+  setLang,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
-
+  const translation = React.useContext(TranslationContext);
+  const size = useWindowSize();
   return (
     <nav
       className={`navigation ${!isButtonClicked ? "navigation_closed" : ""} ${
         isBlack ? "navigation_theme_black" : ""
       }`}
     >
+      {size.width > 740 && (
+        <Lang
+          lang={lang}
+          setLang={setLang}
+          isBlack={isBlack}
+          isButtonClicked={isButtonClicked}
+        />
+      )}
       <ul className="navigation__links">
         <li className="navigation__links-item">
           <NavLink
@@ -29,7 +43,7 @@ function Navigation({
             activeClassName="navigation__link_active"
             onClick={() => setIsButtonClicked(false)}
           >
-            Главная
+            {translation.main}
           </NavLink>
         </li>
         {isLoggedIn ? (
@@ -42,7 +56,7 @@ function Navigation({
                 activeClassName="navigation__link_active"
                 onClick={() => setIsButtonClicked(false)}
               >
-                Сохранённые статьи
+                {translation.savedArticles}
               </NavLink>
             </li>
             <li className="navigation__links-item">
@@ -58,7 +72,7 @@ function Navigation({
           <li className="navigation__links-item">
             <Button
               className="navigation__button"
-              text="Авторизоваться"
+              text={translation.authorize}
               type="button"
               onClick={onLoginClick}
             />
