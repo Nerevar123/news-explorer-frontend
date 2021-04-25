@@ -1,21 +1,24 @@
-# Проект "News Explorer" #
+# News Explorer #
 
-Проект "News Explorer" - это поисковик новостей с возможностью регистрации.
 
-**Технологии**
+**Functionality**
 
-* React;
-* JavaScript;
-* JSX;
-* CSS;
+Search for news that actually interests you! Type in a search term and you will be presented with relevant recent news to feed your curiosity. Create an account to save articles for later.
 
-**Ссылка на проект**
+**Overview**
+
+This single page application was bootstrapped with Create React App and represents the final capstone project for the Full Stack Web Developer program at Practicum. Given that this course covers the entire stack, the backend is also part of the project.
+
+**Technologies**
+
+* React/Create React App
+* Node.js, NPM
+* REST-full API design
+* Express.js
+* JS, HTML, CSS
+
+**Link to the project**
 
 https://news.ner.works/
 
 
-**Change-log**
-
-_v1.0_
-
-Первая версия сайта.
